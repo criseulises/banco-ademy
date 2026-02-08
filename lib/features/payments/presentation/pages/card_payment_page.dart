@@ -43,154 +43,156 @@ class _CardPaymentPageState extends State<CardPaymentPage> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: _buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 24),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 24),
 
-            // Origen
-            _buildLabel('Origen', required: true),
-            const SizedBox(height: 8),
-            _buildDropdown(
-              value: _selectedOrigen,
-              hint: 'Selecciona un producto origen',
-              items: _productos,
-              onChanged: (value) {
-                setState(() {
-                  _selectedOrigen = value;
-                });
-              },
-            ),
-
-            const SizedBox(height: 20),
-
-            // Destino
-            _buildLabel('Destino', required: true),
-            const SizedBox(height: 8),
-            _buildDropdown(
-              value: _selectedDestino,
-              hint: 'Selecciona un producto a pagar',
-              items: _tarjetas,
-              onChanged: (value) {
-                setState(() {
-                  _selectedDestino = value;
-                });
-              },
-            ),
-
-            const SizedBox(height: 20),
-
-            // Monto
-            _buildLabel('Monto', required: true),
-            const SizedBox(height: 8),
-            TextField(
-              controller: _montoController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: 'Digite el monto a pagar',
-                hintStyle: const TextStyle(
-                  color: _borderColor,
-                  fontSize: 14,
-                ),
-                prefixIcon: Container(
-                  width: 48,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    '\$',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
-                    ),
-                  ),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: _borderColor),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: _borderColor),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 16,
-                ),
+              // Origen
+              _buildLabel('Origen', required: true),
+              const SizedBox(height: 8),
+              _buildDropdown(
+                value: _selectedOrigen,
+                hint: 'Selecciona un producto origen',
+                items: _productos,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedOrigen = value;
+                  });
+                },
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // Concepto
-            _buildLabel('Concepto'),
-            const SizedBox(height: 8),
-            TextField(
-              controller: _conceptoController,
-              decoration: InputDecoration(
-                hintText: 'Escribe un comentario',
-                hintStyle: const TextStyle(
-                  color: _borderColor,
-                  fontSize: 14,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: _borderColor),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: _borderColor),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 16,
-                ),
+              // Destino
+              _buildLabel('Destino', required: true),
+              const SizedBox(height: 8),
+              _buildDropdown(
+                value: _selectedDestino,
+                hint: 'Selecciona un producto a pagar',
+                items: _tarjetas,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedDestino = value;
+                  });
+                },
               ),
-            ),
 
-            const Spacer(),
+              const SizedBox(height: 20),
 
-            // Botones Cancelar y Continuar
-            Padding(
-              padding: const EdgeInsets.only(bottom: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text(
-                      'Cancelar',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.secondary,
-                      ),
-                    ),
+              // Monto
+              _buildLabel('Monto', required: true),
+              const SizedBox(height: 8),
+              TextField(
+                controller: _montoController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  hintText: 'Digite el monto a pagar',
+                  hintStyle: const TextStyle(
+                    color: _borderColor,
+                    fontSize: 14,
                   ),
-                  TextButton(
-                    onPressed: _showConfirmDialog,
+                  prefixIcon: Container(
+                    width: 48,
+                    alignment: Alignment.center,
                     child: const Text(
-                      'Continuar',
+                      '\$',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
                         fontWeight: FontWeight.w600,
                         color: AppColors.primary,
                       ),
                     ),
                   ),
-                ],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: _borderColor),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: _borderColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: AppColors.primary),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 16,
+                  ),
+                ),
               ),
-            ),
-          ],
+
+              const SizedBox(height: 20),
+
+              // Concepto
+              _buildLabel('Concepto'),
+              const SizedBox(height: 8),
+              TextField(
+                controller: _conceptoController,
+                decoration: InputDecoration(
+                  hintText: 'Escribe un comentario',
+                  hintStyle: const TextStyle(
+                    color: _borderColor,
+                    fontSize: 14,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: _borderColor),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: _borderColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: AppColors.primary),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 16,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 40),
+
+              // Botones Cancelar y Continuar
+              Padding(
+                padding: const EdgeInsets.only(bottom: 32),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text(
+                        'Cancelar',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.secondary,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: _showConfirmDialog,
+                      child: const Text(
+                        'Continuar',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
