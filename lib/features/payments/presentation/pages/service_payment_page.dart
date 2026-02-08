@@ -45,49 +45,50 @@ class _ServicePaymentPageState extends State<ServicePaymentPage> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: _buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 24),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 24),
 
-            // Servicio
-            _buildLabel('Servicio', required: true),
-            const SizedBox(height: 8),
-            _buildDropdown(
-              value: _selectedServicio,
-              hint: 'Selecciona un servicio a pagar',
-              items: _servicios,
-              onChanged: (value) {
-                setState(() {
-                  _selectedServicio = value;
-                });
-              },
-            ),
+              // Servicio
+              _buildLabel('Servicio', required: true),
+              const SizedBox(height: 8),
+              _buildDropdown(
+                value: _selectedServicio,
+                hint: 'Selecciona un servicio a pagar',
+                items: _servicios,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedServicio = value;
+                  });
+                },
+              ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // Origen
-            _buildLabel('Origen', required: true),
-            const SizedBox(height: 8),
-            _buildDropdown(
-              value: _selectedOrigen,
-              hint: 'Selecciona un producto a debitar',
-              items: _productos,
-              onChanged: (value) {
-                setState(() {
-                  _selectedOrigen = value;
-                });
-              },
-            ),
+              // Origen
+              _buildLabel('Origen', required: true),
+              const SizedBox(height: 8),
+              _buildDropdown(
+                value: _selectedOrigen,
+                hint: 'Selecciona un producto a debitar',
+                items: _productos,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedOrigen = value;
+                  });
+                },
+              ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // Monto
-            _buildLabel('Monto', required: true),
-            const SizedBox(height: 8),
-            TextField(
+              // Monto
+              _buildLabel('Monto', required: true),
+              const SizedBox(height: 8),
+              TextField(
               controller: _montoController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
@@ -127,72 +128,73 @@ class _ServicePaymentPageState extends State<ServicePaymentPage> {
               ),
             ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // Concepto
-            _buildLabel('Concepto'),
-            const SizedBox(height: 8),
-            TextField(
-              controller: _conceptoController,
-              decoration: InputDecoration(
-                hintText: 'Escribe un comentario',
-                hintStyle: const TextStyle(
-                  color: _borderColor,
-                  fontSize: 14,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: _borderColor),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: _borderColor),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 16,
+              // Concepto
+              _buildLabel('Concepto'),
+              const SizedBox(height: 8),
+              TextField(
+                controller: _conceptoController,
+                decoration: InputDecoration(
+                  hintText: 'Escribe un comentario',
+                  hintStyle: const TextStyle(
+                    color: _borderColor,
+                    fontSize: 14,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: _borderColor),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: _borderColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: AppColors.primary),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 16,
+                  ),
                 ),
               ),
-            ),
 
-            const Spacer(),
+              const SizedBox(height: 40),
 
-            // Botones Cancelar y Continuar
-            Padding(
-              padding: const EdgeInsets.only(bottom: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text(
-                      'Cancelar',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.secondary,
+              // Botones Cancelar y Continuar
+              Padding(
+                padding: const EdgeInsets.only(bottom: 32),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text(
+                        'Cancelar',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.secondary,
+                        ),
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: _showConfirmDialog,
-                    child: const Text(
-                      'Continuar',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.primary,
+                    TextButton(
+                      onPressed: _showConfirmDialog,
+                      child: const Text(
+                        'Continuar',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.primary,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
