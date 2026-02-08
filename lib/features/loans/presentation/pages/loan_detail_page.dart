@@ -146,23 +146,28 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Text(
-                      widget.title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
+                Flexible(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          widget.title,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.textPrimary,
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 8),
-                    const Icon(
-                      Icons.edit_outlined,
-                      size: 16,
-                      color: AppColors.primary,
-                    ),
-                  ],
+                      const SizedBox(width: 8),
+                      const Icon(
+                        Icons.edit_outlined,
+                        size: 16,
+                        color: AppColors.primary,
+                      ),
+                    ],
+                  ),
                 ),
                 SvgPicture.asset(
                   'resources/loans.svg',
@@ -314,14 +319,18 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(
-                  widget.loanNumber,
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: Colors.grey.shade500,
+                Flexible(
+                  child: Text(
+                    widget.loanNumber,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: Colors.grey.shade500,
+                    ),
                   ),
                 ),
-                Column(
+                Flexible(
+                  child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
@@ -341,6 +350,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                       ),
                     ),
                   ],
+                  ),
                 ),
               ],
             ),
@@ -366,12 +376,15 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
           ),
         ),
         const SizedBox(width: 4),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Colors.grey.shade700,
+        Flexible(
+          child: Text(
+            label,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: Colors.grey.shade700,
+            ),
           ),
         ),
       ],
