@@ -151,7 +151,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                     Text(
                       widget.title,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: AppColors.textPrimary,
                       ),
@@ -159,15 +159,15 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                     const SizedBox(width: 8),
                     const Icon(
                       Icons.edit_outlined,
-                      size: 18,
+                      size: 16,
                       color: AppColors.primary,
                     ),
                   ],
                 ),
                 SvgPicture.asset(
                   'resources/loans.svg',
-                  width: 28,
-                  height: 28,
+                  width: 24,
+                  height: 24,
                   colorFilter: const ColorFilter.mode(
                     AppColors.primary,
                     BlendMode.srcIn,
@@ -181,7 +181,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
             Text(
               widget.subtitle,
               style: TextStyle(
-                fontSize: 13,
+                fontSize: 11,
                 color: Colors.grey.shade600,
               ),
             ),
@@ -194,8 +194,8 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
               children: [
                 // Gr\u00e1fico circular
                 SizedBox(
-                  width: 110,
-                  height: 110,
+                  width: 90,
+                  height: 90,
                   child: CustomPaint(
                     painter: _LoanProgressPainter(
                       paid: widget.paidInstallments,
@@ -209,7 +209,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                           Text(
                             '${widget.paidInstallments}/${widget.totalInstallments}',
                             style: const TextStyle(
-                              fontSize: 13,
+                              fontSize: 11,
                               fontWeight: FontWeight.bold,
                               color: AppColors.textPrimary,
                             ),
@@ -218,7 +218,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                             'Cuotas pagadas',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 7,
+                              fontSize: 6,
                               color: Colors.grey.shade600,
                             ),
                           ),
@@ -228,7 +228,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                   ),
                 ),
 
-                const SizedBox(width: 16),
+                const SizedBox(width: 12),
 
                 // Leyenda + Tasa y capital
                 Expanded(
@@ -236,66 +236,70 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // Leyenda
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _buildLegendItem(
-                            color: AppColors.primary,
-                            label: '${widget.paidInstallments} Pagadas',
-                          ),
-                          const SizedBox(height: 6),
-                          _buildLegendItem(
-                            color: AppColors.secondary,
-                            label: '$pending Pendientes',
-                          ),
-                          const SizedBox(height: 6),
-                          _buildLegendItem(
-                            color: AppColors.error,
-                            label: '0 Vencidas',
-                          ),
-                        ],
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildLegendItem(
+                              color: AppColors.primary,
+                              label: '${widget.paidInstallments} Pagadas',
+                            ),
+                            const SizedBox(height: 6),
+                            _buildLegendItem(
+                              color: AppColors.secondary,
+                              label: '$pending Pendientes',
+                            ),
+                            const SizedBox(height: 6),
+                            _buildLegendItem(
+                              color: AppColors.error,
+                              label: '0 Vencidas',
+                            ),
+                          ],
+                        ),
                       ),
 
-                      const Spacer(),
+                      const SizedBox(width: 8),
 
                       // Tasa y capital
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Tasa',
-                            style: TextStyle(
-                              fontSize: 11,
-                              color: Colors.grey.shade500,
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Tasa',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.grey.shade500,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            widget.rate,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.textPrimary,
+                            const SizedBox(height: 2),
+                            Text(
+                              widget.rate,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.textPrimary,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'Capital original',
-                            style: TextStyle(
-                              fontSize: 11,
-                              color: Colors.grey.shade500,
+                            const SizedBox(height: 10),
+                            Text(
+                              'Capital original',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.grey.shade500,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            widget.originalAmount,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.textPrimary,
+                            const SizedBox(height: 2),
+                            Text(
+                              widget.originalAmount,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.textPrimary,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -313,7 +317,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                 Text(
                   widget.loanNumber,
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 11,
                     color: Colors.grey.shade500,
                   ),
                 ),
@@ -323,7 +327,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                     Text(
                       'Monto restante',
                       style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 10,
                         color: Colors.grey.shade500,
                       ),
                     ),
@@ -331,7 +335,7 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
                     Text(
                       widget.remainingAmount,
                       style: const TextStyle(
-                        fontSize: 22,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: AppColors.textPrimary,
                       ),
