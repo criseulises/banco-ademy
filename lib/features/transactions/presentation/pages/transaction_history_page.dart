@@ -179,11 +179,6 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Row(
             children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
-                onPressed: () => context.go('/transactions'),
-              ),
-              const SizedBox(width: 8),
               Image.asset(
                 'resources/logo_ademi_blanco.png',
                 height: 45,
@@ -211,13 +206,6 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

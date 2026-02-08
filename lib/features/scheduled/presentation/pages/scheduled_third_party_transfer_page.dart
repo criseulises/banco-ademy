@@ -245,6 +245,7 @@ class _ScheduledThirdPartyTransferPageState
             Row(
               children: [
                 Expanded(
+                  flex: 11,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -264,14 +265,18 @@ class _ScheduledThirdPartyTransferPageState
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                DateFormat('d MMMM yyyy', 'es')
-                                    .format(_selectedDate),
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: AppColors.textPrimary,
+                              Flexible(
+                                child: Text(
+                                  DateFormat('d MMMM yyyy', 'es')
+                                      .format(_selectedDate),
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    color: AppColors.textPrimary,
+                                  ),
                                 ),
                               ),
+                              const SizedBox(width: 8),
                               const Icon(
                                 Icons.calendar_today,
                                 color: AppColors.primary,
@@ -286,6 +291,7 @@ class _ScheduledThirdPartyTransferPageState
                 ),
                 const SizedBox(width: 12),
                 Expanded(
+                  flex: 9,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
