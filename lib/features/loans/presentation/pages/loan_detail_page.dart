@@ -599,21 +599,25 @@ class _LoanDetailPageState extends State<LoanDetailPage> {
       ),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: 40,
             height: 40,
-            decoration: BoxDecoration(
-              color: isPaid
-                  ? AppColors.primary.withOpacity(0.1)
-                  : AppColors.secondary.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(8),
-            ),
             child: Center(
-              child: Icon(
-                isPaid ? Icons.check_circle_outline : Icons.access_time,
-                size: 22,
-                color: isPaid ? AppColors.primary : AppColors.secondary,
-              ),
+              child: isPaid 
+                ? SvgPicture.asset(
+                    'resources/tabler-icon-checks.svg',
+                    width: 24,
+                    height: 24,
+                    colorFilter: const ColorFilter.mode(
+                      AppColors.primary,
+                      BlendMode.srcIn,
+                    ),
+                  )
+                : const Icon(
+                    Icons.access_time,
+                    size: 24,
+                    color: AppColors.secondary,
+                  ),
             ),
           ),
           const SizedBox(width: 12),
